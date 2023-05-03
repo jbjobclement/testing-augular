@@ -5,3 +5,10 @@
         width: 100%;
     }
 }
+.l-app {
+    max-width: 960px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    flex-direction: column;
+}
