@@ -424,8 +424,13 @@
     </button>
   </div>
 
+  <!-- new terminal -->
+  <div class="terminal-wrapper">
+    <app-terminal [selected]="selected"></app-terminal>
+  </div>
+  
   <!-- Terminal -->
-  <app-terminal></app-terminal>
+  <!-- https://angular.tw/api/common/NgSwitch -->
   <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
       <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
