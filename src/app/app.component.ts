@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testing';
+  selected: string = "component"
+  onNextSelectedChanged(selected: string): void {
+    this.selected = selected;
+  }
 }
