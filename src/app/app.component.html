@@ -385,8 +385,8 @@
     </a>
 
   </div>
-
   <!-- Next Steps -->
+  <app-next></app-next>
   <h2>Next Steps</h2>
   <p>What do you want to do next with your app?</p>
 
@@ -425,6 +425,7 @@
   </div>
 
   <!-- Terminal -->
+  <app-terminal></app-terminal>
   <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
       <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
