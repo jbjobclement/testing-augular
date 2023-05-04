@@ -1,0 +1,15 @@
+<div class="p-auth">
+    <div class="p-auth__status">
+        <h2>
+            Authroized: {{authorized}}
+        </h2>
+    </div>
+    <div>
+        <button *ngIf="authorized" (click)="logOut()">
+            Log Out
+        </button>
+        <button *ngIf="!authorized" (click)="logIn()">
+            Log In
+        </button>
+    </div>
+</div>
