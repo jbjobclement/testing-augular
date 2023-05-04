@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NextComponent } from './components/organisms/next/next.component';
 import { TerminalComponent } from './components/organisms/terminal/terminal.component';
+import { NextPageComponent } from './components/pages/next-page/next-page.component';
+import { TerminalPageComponent } from './components/pages/terminal-page/terminal-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NextComponent,
-    TerminalComponent
+    TerminalComponent,
+    NextPageComponent,
+    TerminalPageComponent
   ],
   imports: [
     BrowserModule,

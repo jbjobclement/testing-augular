@@ -1,0 +1,11 @@
+<div class="o-terminal__selectedFromService">
+    selectedFromService: {{selectedFromService}}
+</div>
+<div class="terminal" [ngSwitch]="selected">
+    <pre *ngSwitchDefault>ng generate component xyz</pre>
+    <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
+    <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
+    <pre *ngSwitchCase="'dependency'">ng add _____</pre>
+    <pre *ngSwitchCase="'test'">ng test</pre>
+    <pre *ngSwitchCase="'build'">ng build</pre>
+</div>
