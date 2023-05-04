@@ -12,12 +12,18 @@ export class TerminalPageComponent {
   selectedFromService!: string;
   constructor(
     private selectService: SelectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit() {
+    const selectedFromUri = this.route.snapshot.params['selected']
     const selectedFromService = this.selectService.getSelected();
-    this.selectedFromService = selectedFromService;
-    this.selected = this.route.snapshot.params['selected']
+    if (selectedFromUri) {
+      this.selected = selectedFromUri
+      this.selectedFromService = selectedFromService;
+    } else {
+      this.router.navigate(['/terminal', selectedFromService]);
+    }
   }
 }
