@@ -8,7 +8,7 @@ const routes: Routes = [
     path: 'next-page', component: NextPageComponent,
   },
   {
-    path: 'terminal', component: TerminalPageComponent
+    path: 'terminal/:selected', component: TerminalPageComponent
   }
 ];
 

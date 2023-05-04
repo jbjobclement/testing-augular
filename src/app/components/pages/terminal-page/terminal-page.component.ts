@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
 import { SelectService } from 'src/app/services/select.service';
 @Component({
   selector: 'app-terminal-page',
@@ -7,12 +8,16 @@ import { SelectService } from 'src/app/services/select.service';
   styleUrls: ['./terminal-page.component.scss']
 })
 export class TerminalPageComponent {
-  selected: string | undefined;
+  selected!: string;
+  selectedFromService!: string;
   constructor(
-    private selectService: SelectService
+    private selectService: SelectService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.selected = this.selectService.getSelected()
+    const selectedFromService = this.selectService.getSelected();
+    this.selectedFromService = selectedFromService;
+    this.selected = this.route.snapshot.params['selected']
   }
 }

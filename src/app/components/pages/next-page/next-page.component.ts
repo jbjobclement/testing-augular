@@ -51,6 +51,6 @@ export class NextPageComponent {
 
   goToTerminal(selected: string): void {
     this.selectService.setSelected(selected);
-    this.router.navigate(['/terminal']);
+    this.router.navigate(['/terminal', selected]);
   }
 }
