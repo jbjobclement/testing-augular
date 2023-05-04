@@ -7,8 +7,22 @@
 }
 .l-app {
     max-width: 960px;
-    display: flex;
-    align-items: center;
     margin: auto;
-    flex-direction: column;
+    &__header{
+        display: flex;
+        justify-content: center;
+    }
+    
+    &__breadCrumb {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__breadCrumbList {
+        display: flex;
+        justify-content: center;
+        li {
+            list-style: none;
+        }
+    }
 }

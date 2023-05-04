@@ -487,16 +487,22 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <div class="l-app">
-  <h1>Angular Router App</h1>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/next-page" routerLinkActive="active" ariaCurrentWhenActive="page">Next Steps</a>
-      </li>
-      <li>
-        <a routerLink="/terminal" routerLinkActive="active" ariaCurrentWhenActive="page">Terminal</a>
-      </li>
+  <div class="l-app__header">
+    <h1>Angular Router App</h1>
+  </div>
+  <nav class="l-app__breadCrumb">
+      <ul class="l-app__breadCrumbList">
+        <li>
+          <a routerLink="/next-page" routerLinkActive="active" ariaCurrentWhenActive="page">Next Steps</a>
+        </li>
+        /
+        <li>
+          <a routerLink="/terminal" routerLinkActive="active" ariaCurrentWhenActive="page">Terminal</a>
+        </li>
     </ul>
   </nav>
-  <router-outlet></router-outlet>
+  
+  <div class="l-app__router">
+    <router-outlet></router-outlet>
+  </div>
 </div>
