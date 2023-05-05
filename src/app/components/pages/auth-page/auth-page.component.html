@@ -12,4 +12,18 @@
             Log In
         </button>
     </div>
+    <nav class="m-breadCrumb">
+        <ul class="m-breadCrumb__list">
+          <li>
+            <a routerLink="a" routerLinkActive="active" ariaCurrentWhenActive="page">a</a>
+          </li>
+          /
+          <li>
+            <a routerLink="b" routerLinkActive="active" ariaCurrentWhenActive="page">b</a>
+          </li>
+      </ul>
+    </nav>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
 </div>

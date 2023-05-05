@@ -4,6 +4,8 @@ import { NextPageComponent } from './components/pages/next-page/next-page.compon
 import { TerminalPageComponent } from './components/pages/terminal-page/terminal-page.component';
 import { FirstAuthGuardGuard } from './guards/first-auth-guard.guard';
 import { AuthPageComponent } from './components/pages/auth-page/auth-page.component';
+import { AuthPageAComponent } from './components/pages/auth-page/auth-page-a/auth-page-a.component';
+import { AuthPageBComponent } from './components/pages/auth-page/auth-page-b/auth-page-b.component';
 
 const routes: Routes = [
   {
@@ -19,6 +21,16 @@ const routes: Routes = [
   },
   {
     path: 'auth', component: AuthPageComponent,
+    children: [
+      {
+        path: "a",
+        component: AuthPageAComponent
+      },
+      {
+        path: "b",
+        component: AuthPageBComponent
+      },
+    ]
   }
 ];
 

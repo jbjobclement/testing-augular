@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.m-breadCrumb {
+    max-width: 960px;
+    margin: auto;
+    &__header{
+        display: flex;
+        justify-content: center;
+    }
+    display: flex;
+    justify-content: center;
+
+    &__list {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        li {
+            list-style: none;
+        }
+    }
+}
