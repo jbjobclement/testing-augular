@@ -1,6 +1,6 @@
 import { Component, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, Subscription, switchMap } from 'rxjs';
 import { SelectService } from 'src/app/services/select.service';
 @Component({
   selector: 'app-terminal-page',
@@ -10,6 +10,7 @@ import { SelectService } from 'src/app/services/select.service';
 export class TerminalPageComponent {
   selected!: string;
   selectedFromService!: string;
+  selectedSubscription!: Subscription;
   constructor(
     private selectService: SelectService,
     private route: ActivatedRoute,
@@ -19,9 +20,16 @@ export class TerminalPageComponent {
   ngOnInit() {
     const selectedFromUri = this.route.snapshot.params['selected']
     const selectedFromService = this.selectService.getSelected();
+    
+    this.selectedSubscription = this.selectService.selected$.subscribe(selected => {
+      if (selectedFromUri) {
+        this.selectedFromService = selected;
+      }
+    })
+    
     if (selectedFromUri) {
       this.selected = selectedFromUri
-      this.selectedFromService = selectedFromService;
+      this.selectService.selectedSubject.next(selectedFromUri)
     } else {
       this.router.navigate(['/terminal', selectedFromService]);
     }
