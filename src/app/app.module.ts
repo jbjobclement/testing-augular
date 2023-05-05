@@ -8,6 +8,7 @@ import { TerminalComponent } from './components/organisms/terminal/terminal.comp
 import { NextPageComponent } from './components/pages/next-page/next-page.component';
 import { TerminalPageComponent } from './components/pages/terminal-page/terminal-page.component';
 import { AuthPageComponent } from './components/pages/auth-page/auth-page.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AuthPageComponent } from './components/pages/auth-page/auth-page.compon
     TerminalComponent,
     NextPageComponent,
     TerminalPageComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

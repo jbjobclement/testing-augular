@@ -6,6 +6,7 @@ import { FirstAuthGuardGuard } from './guards/first-auth-guard.guard';
 import { AuthPageComponent } from './components/pages/auth-page/auth-page.component';
 import { AuthPageAComponent } from './components/pages/auth-page/auth-page-a/auth-page-a.component';
 import { AuthPageBComponent } from './components/pages/auth-page/auth-page-b/auth-page-b.component';
+import { PageNotFoundComponent } from './components/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -31,9 +32,9 @@ const routes: Routes = [
         component: AuthPageBComponent
       },
     ]
-  }
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
