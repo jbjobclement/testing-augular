@@ -14,7 +14,6 @@ export class NextPageComponent {
   selected$!: Observable<string>;
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private selectService: SelectService
   ) {}
   options: { value: string, label: string }[] = [
