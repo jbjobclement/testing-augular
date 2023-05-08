@@ -12,6 +12,10 @@
             <td [attr.colspan]="1+1">1</td>
             <td>3</td>
         </tr>
+        <tr>
+            <td [colSpan]="1+1">1</td>
+            <td>3</td>
+        </tr>
     </tbody>
 </table>
 <div [class.css-class-1]="cssClass1">
@@ -40,3 +44,18 @@
 </div>
 
 <button (click)="clickButton($event)">click</button>
+<img [src]="imgSrc" alt="imgSrc">
+
+<div [ngClass]="multipleClassName1">
+    multipleClassName1
+</div>
+<div [ngClass]="multipleClassName2">
+    multipleClassName2
+</div>
+<div [ngClass]="multipleClassName3">
+    multipleClassName3
+</div>
+
+<button [disabled]="buttonDisabled">
+    buttonDisabled
+</button>

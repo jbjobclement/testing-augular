@@ -14,11 +14,14 @@ export class BindingComponent {
   }
   multipleClassName3 = ["a", "b", "c"]
   singleStyleColor: string = "green"
+  imgSrc: string = "https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+  imgAlt: string = "img alt";
+  buttonDisabled: boolean = true;
   multipleStyle: Partial<CSSStyleDeclaration> = {
     color: "yellow",
     background: "green"
   };
-
+  ngClass1: string = 'ng-class';
   toggleCssClass1(): void {
     this.cssClass1 = !this.cssClass1;
   }
