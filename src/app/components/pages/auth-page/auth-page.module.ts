@@ -6,7 +6,17 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: AuthPageComponent
+    component: AuthPageComponent,
+    children: [
+      {
+        path: "a",
+        loadChildren: () => import("./auth-page-a/auth-page-a.module").then(m => m.AuthPageAModule)
+      },
+      {
+        path: "b",
+        loadChildren: () => import("./auth-page-b/auth-page-b.module").then(m => m.AuthPageBModule)
+      }
+    ]
   }
 ]
 
