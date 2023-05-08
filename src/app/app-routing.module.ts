@@ -21,17 +21,8 @@ const routes: Routes = [
     canActivate: [FirstAuthGuardGuard]
   },
   {
-    path: 'auth', component: AuthPageComponent,
-    children: [
-      {
-        path: "a",
-        component: AuthPageAComponent
-      },
-      {
-        path: "b",
-        component: AuthPageBComponent
-      },
-    ]
+    path: 'auth', 
+    loadChildren: () => import("src/app/components/pages/auth-page/auth-page.module").then(m => m.AuthPageModule),
   },
   { path: '**', component: PageNotFoundComponent }
 ];

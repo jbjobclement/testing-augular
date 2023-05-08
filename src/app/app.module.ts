@@ -17,7 +17,6 @@ import { PageNotFoundComponent } from './components/pages/page-not-found/page-no
     TerminalComponent,
     NextPageComponent,
     TerminalPageComponent,
-    AuthPageComponent,
     PageNotFoundComponent
   ],
   imports: [
