@@ -14,3 +14,27 @@
         </tr>
     </tbody>
 </table>
+<div [class.css-class-1]="cssClass1">
+    css-class-1 {{cssClass1}}
+    <button (click)="toggleCssClass1()">
+        toggle cssClass1
+    </button>
+</div>
+
+<div [class]="multipleClassName1">
+    multipleClassName1
+</div>
+<div [class]="multipleClassName2">
+    multipleClassName2
+</div>
+<div [class]="multipleClassName3">
+    multipleClassName3
+</div>
+
+<div [style.color] = 'singleStyleColor'>
+    single style
+</div>
+
+<div [style]="multipleStyle">
+    multipleStyle
+</div>
