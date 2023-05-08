@@ -25,6 +25,7 @@ const routes: Routes = [
       defaultData: "default data from route object",
     }
   },
+  { path: 'angular-http-testing', loadChildren: () => import('./components/pages/angular-http-testing/angular-http-testing.module').then(m => m.AngularHttpTestingModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
