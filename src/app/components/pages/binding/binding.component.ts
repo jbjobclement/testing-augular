@@ -18,7 +18,13 @@ export class BindingComponent {
     color: "yellow",
     background: "green"
   };
+
   toggleCssClass1(): void {
     this.cssClass1 = !this.cssClass1;
+  }
+
+  clickButton(e: MouseEvent): void {
+    console.log(e)
+    alert("click!")
   }
 }
