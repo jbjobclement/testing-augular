@@ -1,0 +1,20 @@
+<p>angular-http-testing works!</p>
+<div>{{ 'Mon May 08 2023 14:55:01 GMT+0800' | date: 'yyyy/MM/dd HH:mm:ss'}}</div>
+<table>
+    <thead>
+        <tr>
+            <th>userId</th>
+            <th>id</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td [style.color]="'red'">{{user.userId}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.title}}</td>
+            <td>{{user.body}}</td>
+        </tr>
+    </tbody>
+</table>
