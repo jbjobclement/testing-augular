@@ -1,0 +1,31 @@
+<p>pipes works!</p>
+<div>
+    <h2>DatePipe</h2> {{ date | date: 'yyyy MM dd' }}
+</div>
+<div>
+    <h2>DatePipe</h2> {{ date | date: 'short' | lowercase }}
+</div>
+<div>
+    <h2>DatePipe</h2> {{ date | date: 'short' }}
+</div>
+<div>
+    <h2>UpperCasePipe</h2> {{ 'lower case to upper case' | uppercase }}
+</div>
+<div>
+    <h2>LowerCasePipe</h2> {{ 'UPPER CASE TO LOWER CASE' | lowercase }}
+</div>
+<div>
+    <h2>CurrencyPipe</h2> {{ 100 | currency: 'TWD': "台幣" }}
+</div>
+<div>
+    <h2>CurrencyPipe</h2> {{ 100 | currency: 'TWD' }}
+</div>
+<div>
+    <h2>DecimalPipe</h2> {{ 2.22 | number: '2.6-6' }}
+</div>
+<div>
+    <h2>AsyncPipe</h2> {{ asyncPromiseData | async }}
+</div>
+<div>
+    <h2>TestingPipe</h2> {{ 2 | testing: 2: 2 }}
+</div>
