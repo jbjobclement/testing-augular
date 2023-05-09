@@ -1,0 +1,69 @@
+<p>binding works!</p><p [attr.attr-testing]="attrTesting">attribute testing</p><button type="button" [attr.aria-label]="attrTesting">aria button</button>
+<table>
+    <thead>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td [attr.colspan]="1+1">1</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td [colSpan]="1+1">1</td>
+            <td>3</td>
+        </tr>
+    </tbody>
+</table>
+<div [class.css-class-1]="cssClass1">
+    css-class-1 {{cssClass1}}
+    <button (click)="toggleCssClass1()">
+        toggle cssClass1
+    </button>
+</div>
+
+<div [class]="multipleClassName1">
+    multipleClassName1
+</div>
+<div [class]="multipleClassName2">
+    multipleClassName2
+</div>
+<div [class]="multipleClassName3">
+    multipleClassName3
+</div>
+
+<div [style.color] = 'singleStyleColor'>
+    single style
+</div>
+
+<div [style]="multipleStyle">
+    multipleStyle
+</div>
+
+<button (click)="clickButton($event)">click</button>
+<img [src]="imgSrc" alt="imgSrc">
+
+<div [ngClass]="multipleClassName1">
+    multipleClassName1
+</div>
+<div [ngClass]="multipleClassName2">
+    multipleClassName2
+</div>
+<div [ngClass]="multipleClassName3">
+    multipleClassName3
+</div>
+
+<button [disabled]="buttonDisabled">
+    buttonDisabled
+</button>
+size - outer - <input [(ngModel)]="size">
+<div>
+    <app-two-way-binding [(size)]="size"></app-two-way-binding>
+</div>
+
+<div>
+    <app-two-way-binding [size]="size" (sizeChange)="size=$event"></app-two-way-binding>
+</div>

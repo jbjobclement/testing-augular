@@ -26,6 +26,7 @@ const routes: Routes = [
     }
   },
   { path: 'angular-http-testing', loadChildren: () => import('./components/pages/angular-http-testing/angular-http-testing.module').then(m => m.AngularHttpTestingModule) },
+  { path: 'binding', loadChildren: () => import('./components/pages/binding/binding.module').then(m => m.BindingModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
