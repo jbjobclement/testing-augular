@@ -21,6 +21,7 @@ export class BindingComponent {
     color: "yellow",
     background: "green"
   };
+  size: number = 1;
   ngClass1: string = 'ng-class';
   toggleCssClass1(): void {
     this.cssClass1 = !this.cssClass1;

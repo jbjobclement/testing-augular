@@ -59,3 +59,11 @@
 <button [disabled]="buttonDisabled">
     buttonDisabled
 </button>
+size - outer - <input [(ngModel)]="size">
+<div>
+    <app-two-way-binding [(size)]="size"></app-two-way-binding>
+</div>
+
+<div>
+    <app-two-way-binding [size]="size" (sizeChange)="size=$event"></app-two-way-binding>
+</div>
