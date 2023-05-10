@@ -1,0 +1,131 @@
+{{formJSON}}
+<!-- 響應式表單自訂驗證規則 -->
+<h2>響應式表單</h2>
+<div>
+  <input [formControl]="aControl" type="text">
+  {{aControl.errors?.['required'] ? "required": ""}}
+  {{aControl.errors?.['forbiddenName'] ? "forbiddenName": ""}}
+</div>
+<h2>範本驅動表單</h2>
+<div><input [(ngModel)]="a" type="text"></div>
+
+<h2>FormGroup</h2>
+<form [formGroup]="aGroup" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="non-bob">Non Bob</label>
+      <input id="non-bob" formControlName="noneBob" type="text">
+      {{ aGroupNoneBob?.errors ? '名稱不可以含有bob!': null }}
+    </div>
+    <div>
+      <label for="first-name">First Name</label>
+      <input id="first-name" formControlName="firstName" type="text">
+      {{ aGroup.get("firstName")?.errors ? '不可以為空!': null }}
+    </div>
+    <div>
+      <label for="last-name">Last Name</label>
+      <input id="last-name" formControlName="lastName" type="text">
+      <span *ngIf="aGroup.errors?.['sameName']">
+        First Name 和 Last Name 重複!
+      </span>
+    </div>
+    <div formGroupName="group">
+      <label for="a">A</label>
+      <input id="a" formControlName="a" type="text">
+      <label for="b">B</label>
+      <input id="b" formControlName="b" type="text">
+    </div>
+    <button>submit</button>
+    <button (click)="patchForm()">patch</button>
+    <button (click)="setForm()">set</button>
+    <button (click)="logAGroupErr()">logErr</button>
+  </form>
+
+  <h2>Form by builder</h2>
+  <form [formGroup]="formGroupByFormBuilder">
+    <label for="first-name">First Name</label>
+    <span *ngIf="formGroupByFormBuilder.errors?.['required']">
+      required
+    </span>
+    <input id="first-name" formControlName="firstName" type="text">
+    <label for="last-name">Last Name</label>
+    <input id="last-name" formControlName="lastName" type="text">
+    <!-- group -->
+    <div formGroupName="group">
+        <label for="a">A</label>
+        <input id="a" formControlName="a" type="text">
+        <label for="b">B</label>
+        <input id="b" formControlName="b" type="text">
+    </div>
+    <!-- form array -->
+    <div formArrayName="formArr">
+        <div *ngFor="let arr of formArr.controls; let i = index;">
+            <label for="arr-{{i}}">Arr: {{i}}</label>
+            <input id="arr-{{i}}" [formControlName]="i" type="text">
+        </div>
+    </div>
+    {{ formGroupByFormBuilder.status }}
+
+    <button (click)="logFormArr()">logFormArr</button>
+    <button (click)="addFormArr()">add</button>
+    <button (click)="resetForm()">reset</button>
+    <button [disabled]="!formGroupByFormBuilder.valid" (click)="onFormArraySubmit()">submit</button>
+</form>
+
+<!-- form record -->
+<button (click)="addFormRecordControl()">
+    add form record
+</button>
+<!-- template form validation, name 變數 儲存 ngModel實例-->
+<input type="text" required minlength="2" appForbiddenName forbiddenName="bob" [(ngModel)]="hero.name" #name="ngModel">
+<div *ngIf="name.invalid">
+  invalid name
+  <div *ngIf="name.errors?.['required']">
+    required
+  </div>
+  <div *ngIf="name.errors?.['minlength']">
+    至少要2位
+  </div>
+  <div *ngIf="name.errors?.['forbiddenName']">
+    Name cannot be Bob.
+  </div>
+</div>
+<!-- noneDuplicateID template asyncValidator -->
+<div>
+  <div>
+    <h2>
+      noneDuplicateID asyncValidator
+    </h2>
+  </div>
+
+  <input #noneDuplicateID="ngModel" type="text" [(ngModel)]="noneDuplicateIDTemplate" [ngModelOptions]="{ updateOn: 'blur' }" appAsyncValidator>
+  {{noneDuplicateID.errors ? '重複id!': null}}
+</div>
+
+<!-- asyncValidators reactive form module -->
+<h2>asyncValidators reactive form</h2>
+<input [formControl]="asyncValidatorControl" type="text">
+{{ asyncValidatorControl.errors ? '重複id !': null }}
+
+<form [formGroup]="asyncValidatorGroup" (ngSubmit)="onAsyncValidatorSubmit()">
+  <input formControlName="asyncValidator" type="text">
+  <button type="submit">check</button>
+  {{ asyncValidatorGroup.get("asyncValidator")?.errors ? '重複id !': null }}
+</form>
+
+<!-- dynamic form question -->
+<!-- <div [formGroup]="dynamicForm">
+  <label [attr.for]="question.key">{{question.label}}</label>
+
+  <div [ngSwitch]="question.controlType">
+
+    <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type">
+
+    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+
+  </div>
+
+  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+</div> -->

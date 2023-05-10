@@ -28,6 +28,8 @@ const routes: Routes = [
   { path: 'angular-http-testing', loadChildren: () => import('./components/pages/angular-http-testing/angular-http-testing.module').then(m => m.AngularHttpTestingModule) },
   { path: 'binding', loadChildren: () => import('./components/pages/binding/binding.module').then(m => m.BindingModule) },
   { path: 'pipes', loadChildren: () => import('./components/pages/pipes/pipes.module').then(m => m.PipesModule) },
+  { path: 'forms-testing', loadChildren: () => import('./components/pages/forms-testing/forms-testing.module').then(m => m.FormsTestingModule) },
+  { path: 'dynamic-form', loadChildren: () => import('./components/pages/dynamic-form/dynamic-form.module').then(m => m.DynamicFormModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
