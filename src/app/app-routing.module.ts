@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'pipes', loadChildren: () => import('./components/pages/pipes/pipes.module').then(m => m.PipesModule) },
   { path: 'forms-testing', loadChildren: () => import('./components/pages/forms-testing/forms-testing.module').then(m => m.FormsTestingModule) },
   { path: 'dynamic-form', loadChildren: () => import('./components/pages/dynamic-form/dynamic-form.module').then(m => m.DynamicFormModule) },
+  { path: 'rxjs-testing', loadChildren: () => import('./components/pages/rxjs-testing/rxjs-testing.module').then(m => m.RxjsTestingModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
 
