@@ -90,6 +90,26 @@ export class RxjsTestingComponent {
     subscription.unsubscribe();
   }
 
+  docObserverEX1() {
+
+    const observer = {
+      next: (x: number) => console.log('Observer got a next value: ' + x),
+      error: (err: string) => console.error('Observer got an error: ' + err),
+      complete: () => console.log('Observer got a complete notification'),
+    };
+
+    const observable = new Observable<number>((subscriber) => {
+      subscriber.next(1);
+      subscriber.next(2);
+      subscriber.next(3);
+      subscriber.error('e');
+      subscriber.complete();
+    });    
+    const subscription = observable.subscribe(observer);
+    // const subscription = observable.subscribe(x => console.log('Observer got a next value: ' + x));
+    subscription.unsubscribe();
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe()
   }
