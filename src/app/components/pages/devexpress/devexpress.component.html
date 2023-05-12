@@ -5,8 +5,10 @@
   [remoteOperations]="true"
   (onCellClick)="getDataAndLog($event)"
   (onRowPrepared)="onRowPrepared($event)"
+  (onSaved)="onSaved($event)"
+  (onSaving)="onSaving($event)"
 >
-    <dxi-column 
+    <dxi-column
         dataField="userId" 
         dataType="number" 
         headerCellTemplate="titleHeaderTemplate"
@@ -19,16 +21,10 @@
         headerCellTemplate="titleHeaderTemplate"
         cellTemplate="cellTemplate"
     >
+        <dxo-lookup [dataSource]="users" valueExpr="id" displayExpr="id"></dxo-lookup>
     </dxi-column>
     <dxi-column 
         dataField="title" 
-        dataType="string" 
-        headerCellTemplate="titleHeaderTemplate"
-        cellTemplate="cellTemplate"
-    >
-    </dxi-column>
-    <dxi-column 
-        dataField="body" 
         dataType="string" 
         headerCellTemplate="titleHeaderTemplate"
         cellTemplate="cellTemplate"
@@ -40,6 +36,12 @@
     <div *dxTemplate="let cellInfo  of 'cellTemplate'">
         <p style="font-size:16px">{{cellInfo.value}}</p>
     </div>
+    <dxi-column 
+        dataField="body" 
+        headerCellTemplate="titleHeaderTemplate"
+        cellTemplate="cellTemplate"
+    >
+    </dxi-column>
     <dxo-editing
         mode="row"
         [allowUpdating]="true"

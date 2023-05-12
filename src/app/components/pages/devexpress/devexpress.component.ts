@@ -1,9 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UserData } from 'src/app/services/user/type';
 import { UserService } from 'src/app/services/user/user.service';
-import { CellClickEvent, RowPreparedEvent } from 'devextreme/ui/data_grid';
-import { DxDataGridComponent } from "devextreme-angular";
+import { CellClickEvent, RowPreparedEvent, SavedEvent, SavingEvent } from 'devextreme/ui/data_grid';
 @Component({
   selector: 'app-devexpress',
   templateUrl: './devexpress.component.html',
@@ -33,5 +32,15 @@ export class DevexpressComponent {
     if (e.rowType === 'data' && e.data.id % 2 === 0) {
         e.rowElement.style.background = '#f0f0f0'
     }
+  }
+
+  onSaved(e: SavedEvent){
+    console.log("onSaved")
+    console.log(e)
+  }
+  
+  onSaving(e: SavingEvent){
+    console.log("onSaving")
+    console.log(e)
   }
 }
