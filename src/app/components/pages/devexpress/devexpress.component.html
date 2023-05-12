@@ -1,0 +1,53 @@
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="users"
+  [showBorders]="true"
+  [remoteOperations]="true"
+  (onCellClick)="getDataAndLog($event)"
+  (onRowPrepared)="onRowPrepared($event)"
+>
+    <dxi-column 
+        dataField="userId" 
+        dataType="number" 
+        headerCellTemplate="titleHeaderTemplate"
+        cellTemplate="cellTemplate"
+    >
+    </dxi-column>
+    <dxi-column 
+        dataField="id" 
+        dataType="number" 
+        headerCellTemplate="titleHeaderTemplate"
+        cellTemplate="cellTemplate"
+    >
+    </dxi-column>
+    <dxi-column 
+        dataField="title" 
+        dataType="string" 
+        headerCellTemplate="titleHeaderTemplate"
+        cellTemplate="cellTemplate"
+    >
+    </dxi-column>
+    <dxi-column 
+        dataField="body" 
+        dataType="string" 
+        headerCellTemplate="titleHeaderTemplate"
+        cellTemplate="cellTemplate"
+    >
+    </dxi-column>
+    <div *dxTemplate="let info of 'titleHeaderTemplate'">
+        <p style="font-size:16px">{{info.column.caption}}</p>
+    </div>
+    <div *dxTemplate="let cellInfo  of 'cellTemplate'">
+        <p style="font-size:16px">{{cellInfo.value}}</p>
+    </div>
+    <dxo-editing
+        mode="row"
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+    ></dxo-editing>
+    <dxo-paging [pageSize]="12"></dxo-paging>
+    <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[8, 12, 20]"
+    ></dxo-pager>
+</dx-data-grid>
