@@ -24,11 +24,13 @@ export class DevexpressComponent {
       this.users = users
     });
   }
+  
   getDataAndLog(data: CellClickEvent): void {
     console.log(data.value)
   }
+
   onRowPrepared(e: RowPreparedEvent) {
-    if (e.data.id % 2 === 0) {
+    if (e.rowType === 'data' && e.data.id % 2 === 0) {
         e.rowElement.style.background = '#f0f0f0'
     }
   }
